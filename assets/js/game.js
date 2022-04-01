@@ -8,10 +8,9 @@ var enemyHealth = 50;
 var enemyAttack = 12;
 
 var fight = function(enemyName) {
-    // This alerts players the round is starting.
-    window.alert("Welcome to Roobt Gladiators!");
-
-    var promptFight = window.prompt("Would you like to FIGHT or SKIP this battle? Enter 'FIGHT' or 'SKIP' to choose");
+    //repeat and execute as long as the enemy-robot is alive
+    while(enemyHealth > 0) {
+       var promptFight = window.prompt("Would you like to FIGHT or SKIP this battle? Enter 'FIGHT' or 'SKIP' to choose");
     console.log(promptFight);
     // if player chooses to fight
     if (promptFight === "fight" || promptFight === "FIGHT") {
@@ -51,11 +50,15 @@ var fight = function(enemyName) {
         }
     }   else {
         window.alert("You need to choose a valid option. Try again!");
+    } fight();
     }
+    
 }
 
 for(var i = 0; i < enemyNames.length; i++) {
-    fight(enemyNames[i]);
+    var pickedEnemyName = enemyNames[i];
+    enemyHealth = 50;
+    fight(pickedEnemyName);
 }
 // fight ();
 
